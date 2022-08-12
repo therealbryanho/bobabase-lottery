@@ -1,4 +1,4 @@
-Hackathon: L2 Rollathon: a Virtual Hackathon
+Hackathon: BOBA x MOONBEAM HACK CHALLENGE
 
 Project Name: Bobabase Lottery Game
 
@@ -8,4 +8,4 @@ Contract deployed on Bobabase.
 
 Contract https://blockexplorer.bobabase.boba.network/address/0x13f0CEdF9d477411217346b9CDA976FAF5954aF7/transactions#address-tabs
 
-Demo 
+Demo https://bobabaselottery.netlify.app/
