@@ -47,6 +47,7 @@ function App() {
       from: accounts[0],
       value: web3.utils.toWei(value, "ether"),
     });
+    initManager();
     initPlayers();
     initBalance();
     setMessage("Your Entry is Confirmed");
@@ -54,6 +55,7 @@ function App() {
 
   const requestAccess = async () => {
     await web3.eth.requestAccounts();
+    initManager();
   };
 
   const pickWinner = async () => {
@@ -65,27 +67,13 @@ function App() {
     setMessage("The Winner has been selected and transferred winnings.");
   };
   
-/*const [show, setShow] = useState(false)
-  
-
-    useEffect(() => {
-      if(!web3.isConnected()) {
-
-        // show some dialog to ask the user to start a node
-
-    }else {
-      setShow(true);
-    }
-    });*/
-
-
     const [show, setShow] = useState(false);
     const [showWinner, setShowWinner] = useState(false);
     let connectedAccount = 0;
 
     (async () => {
       const accounts = await web3.eth.getAccounts();
-      console.log(accounts[0]);
+      console.log("accounts[0] "+accounts[0]);
       connectedAccount = accounts[0];
       if(accounts != "0x536759345D9923E80f5fc600f8fF9f29311bCcf2") {
         console.log('not manager');

@@ -1,8 +1,6 @@
 import web3 from "./web3";
 
-//mumbai
-//https://mumbai.polygonscan.com/address/0xea7f677419e0ee99dbe9734c41736291b4f20394
-const address = "0xea7f677419e0ee99dbe9734c41736291b4f20394";
+const address = "0x13f0CEdF9d477411217346b9CDA976FAF5954aF7";
 
 const ABI = [
 	{
