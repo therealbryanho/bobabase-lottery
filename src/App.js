@@ -87,7 +87,7 @@ function App() {
       const accounts = await web3.eth.getAccounts();
       console.log(accounts[0]);
       connectedAccount = accounts[0];
-      if(accounts != "0xa18736ED3c74D61777750399E716644db69F44D8") {
+      if(accounts != "0x536759345D9923E80f5fc600f8fF9f29311bCcf2") {
         console.log('not manager');
         setShowWinner(false);
       } else {
@@ -105,26 +105,19 @@ function App() {
     
     })();
 
-  const Button = () => (
-    <>
-    <a class="buy" target="_blank" href={"https://staging-global.transak.com/?apiKey=f9c0675d-eda3-47b7-8a72-f8762f9a5c03&redirectURL=https://abc.com&cryptoCurrencyCode=MATIC&defaultCryptoCurrency=MATIC&cryptoCurrencyList=MATIC&defaultNetwork=polygon&networks=polygon&network=polygon&walletAddress="+ connectedAccount + "&disableWalletAddressForm=true&exchangeScreenTitle=LotteryDapp&isFeeCalculationHidden=true&fiatAmount=100"}>Buy Matic</a>
-    </>
-  )
   return (
     
     <div className="App">
       <h2 class="page-title">Lottery Game</h2>
-      <Button show={show} onHide={()=> setShow(false)}/>
       <section class="section-wrapper what">
         <div class="container">
           <div class="text">
-            <p>Powered By Transak</p>
             <p>This contract is managed by {manager}</p>
-            <h2>1 MATIC for 1 entry.</h2>
-            <h3>Max 100 entries in 1 transaction.</h3>
+            <h2>0.5 BOBA for 1 entry.</h2>
+            <h3>Max 3 entries in 1 transaction.</h3>
             <p class="description">
             There are currently {players} entries competing to win&nbsp;
-            {web3.utils.fromWei(balance, "ether")} MATIC
+            {web3.utils.fromWei(balance, "ether")} BOBA
           </p>
           </div>
           <div class="beige ball">
@@ -145,7 +138,7 @@ function App() {
           <div class="right">
             <form onSubmit={onSubmit}>
               <div>
-                <label>Amount of MATIC to enter</label>
+                <label>Amount of BOBA to enter</label>
                 <input
                   onChange={(event) => setValue(event.target.value)}
                   value={value}

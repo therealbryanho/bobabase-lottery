@@ -12,26 +12,26 @@ contract RaffleLottery{
     }
 
     function joinRaffle() public payable {
-        require(msg.value >= 1 ether);
+        require(msg.value >= 0.5 ether);
 
         // In case a winner was just chosen, resest the values.
         winnerHasBeenChosen = false;
         winner = address(0);
 
-        // One entry per 1 ether. Max entries per transaction is 100.
-        uint numEntriesSent = msg.value / 1 ether;
-        uint numEntries = 100;
+        // One entry per 0.5 boba. Max entries per transaction is 3.
+        uint numEntriesSent = msg.value / 0.5 ether;
+        uint numEntries = 3;
         if (numEntriesSent < numEntries) {
             numEntries = numEntriesSent;
         }
 
-        // Add one entry per 1 ether.
+        // Add one entry per 0.5 boba.
         for (uint i = 0; i < numEntries; i++){
             players.push(msg.sender);
         }
 
-        // Automatically choose a winner if the total number of players exceeds 200.
-        if (players.length > 200){
+        // Automatically choose a winner if the total number of players exceeds 10.
+        if (players.length > 10){
             selectWinner();
             //winnerHasBeenChosen = true;
         }
@@ -48,7 +48,7 @@ contract RaffleLottery{
     function selectWinner() private {
         uint indexOfWinner = pseudoRandom() % players.length;
 
-        // Send the ether to the winner.
+        // Send boba to the winner.
         payable(players[indexOfWinner]).transfer(address(this).balance);
 
         // Set the value of the winner's address.
@@ -68,7 +68,7 @@ contract RaffleLottery{
     }
 
     function pseudoRandom() private view returns (uint){
-        // Not truly random. For learning purposes only.
+        // Not truly random. Good enough for some fun.
         return uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp, players)));
     }
 
